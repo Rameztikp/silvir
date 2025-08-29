@@ -1,0 +1,858 @@
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silver Hand - متجر المعسلات الإلكترونية الفاخر</title>
+    
+    <!-- Google Fonts - Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Heroicons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/heroicons@2.0.18/24/outline/index.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                borderRadius: {
+                    lg: "var(--radius)",
+                    md: "calc(var(--radius) - 2px)",
+                    sm: "calc(var(--radius) - 4px)",
+                },
+                colors: {
+                    background: "var(--background)",
+                    foreground: "var(--foreground)",
+                    card: {
+                        DEFAULT: "var(--card)",
+                        foreground: "var(--card-foreground)",
+                    },
+                    primary: {
+                        DEFAULT: "var(--primary)",
+                        foreground: "var(--primary-foreground)",
+                    },
+                    secondary: {
+                        DEFAULT: "var(--secondary)",
+                        foreground: "var(--secondary-foreground)",
+                    },
+                    muted: {
+                        DEFAULT: "var(--muted)",
+                        foreground: "var(--muted-foreground)",
+                    },
+                    accent: {
+                        DEFAULT: "var(--accent)",
+                        foreground: "var(--accent-foreground)",
+                    },
+                    border: "var(--border)",
+                    ring: "var(--ring)",
+                },
+                fontFamily: {
+                    cairo: ["Cairo", "sans-serif"],
+                }
+            },
+        }
+    };
+    </script>
+    
+    <style>
+        :root {
+            --background: hsl(210 20% 98%);
+            --foreground: hsl(210 40% 8%);
+            --card: hsl(210 20% 95%);
+            --card-foreground: hsl(210 40% 15%);
+            --primary: hsl(217 91% 60%);
+            --primary-foreground: hsl(210 40% 98%);
+            --secondary: hsl(210 40% 90%);
+            --secondary-foreground: hsl(217 91% 60%);
+            --muted: hsl(210 40% 96%);
+            --muted-foreground: hsl(215 16% 47%);
+            --accent: hsl(210 40% 94%);
+            --accent-foreground: hsl(210 40% 11%);
+            --border: hsl(214 32% 91%);
+            --ring: hsl(217 91% 60%);
+            --radius: 8px;
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, hsl(210 40% 8%) 0%, hsl(217 91% 60%) 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-background text-foreground font-cairo">
+    <!-- Header Navigation -->
+    <!-- @COMPONENT: Header [navigation with logo and menu items] -->
+    <header class="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-4">
+                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCACgAKADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/2Q==" 
+                         alt="Silver Hand Logo" 
+                         class="h-12 w-auto" 
+                         data-mock="true">
+                    <span class="text-2xl font-bold text-foreground">Silver Hand</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-foreground hover:text-primary transition-colors font-medium" data-event="click:scrollToSection">الرئيسية</a>
+                    <a href="#products" class="text-foreground hover:text-primary transition-colors font-medium" data-event="click:scrollToSection">المنتجات</a>
+                    <a href="#about" class="text-foreground hover:text-primary transition-colors font-medium" data-event="click:scrollToSection">من نحن</a>
+                    <a href="#contact" class="text-foreground hover:text-primary transition-colors font-medium" data-event="click:scrollToSection">تواصل معنا</a>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2" data-event="click:toggleMobileMenu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- @END_COMPONENT: Header -->
+
+    <!-- Mobile Navigation Menu -->
+    <!-- @STATE: mobileMenuOpen:boolean = false -->
+    <div class="md:hidden bg-background border-b border-border hidden" id="mobileMenu">
+        <div class="container mx-auto px-4 py-4">
+            <nav class="flex flex-col space-y-4">
+                <a href="#home" class="text-foreground hover:text-primary transition-colors font-medium">الرئيسية</a>
+                <a href="#products" class="text-foreground hover:text-primary transition-colors font-medium">المنتجات</a>
+                <a href="#about" class="text-foreground hover:text-primary transition-colors font-medium">من نحن</a>
+                <a href="#contact" class="text-foreground hover:text-primary transition-colors font-medium">تواصل معنا</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <!-- @COMPONENT: HeroSection [full-width banner with background image and CTA] -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Modern hookah and vaping devices in an elegant setting with blue lighting -->
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" 
+             style="background-image: url('https://pixabay.com/get/g7525e8fe09750636dcf64dfcb5ed481a491592bc2baf66940ff3d7f7d7d33e738593de6bd23bc225bc6b2671b117ebe78c9d7134b01148c3ac71600ed84ce71e_1280.jpg');">
+        </div>
+        
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-br from-foreground/80 via-primary/40 to-foreground/90"></div>
+        
+        <!-- Content -->
+        <div class="relative z-10 text-center text-white px-4 lg:px-8 max-w-6xl mx-auto">
+            <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+                <span class="block">تجربة استثنائية</span>
+                <span class="block gradient-text bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">للمعسلات الإلكترونية</span>
+            </h1>
+            
+            <p class="text-xl lg:text-2xl mb-10 text-gray-200 max-w-3xl mx-auto leading-relaxed">
+                اكتشف مجموعتنا الفاخرة من المعسلات الإلكترونية عالية الجودة والإكسسوارات الحديثة
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button class="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 shadow-lg" 
+                        data-event="click:scrollToProducts">
+                    تسوق الآن
+                </button>
+                <button class="border-2 border-white text-white hover:bg-white hover:text-foreground px-8 py-4 rounded-lg text-lg font-semibold transition-all">
+                    المزيد من المعلومات
+                </button>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: HeroSection -->
+
+    <!-- Products Section -->
+    <!-- @COMPONENT: ProductsSection [product showcase with cards] -->
+    <section id="products" class="py-20 bg-background">
+        <div class="container mx-auto px-4 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold text-foreground mb-6">منتجاتنا المميزة</h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    مجموعة مختارة بعناية من أفضل المعسلات الإلكترونية والإكسسوارات الحديثة
+                </p>
+            </div>
+            
+            <!-- Products Grid -->
+            <!-- @MAP: products.map(product => ( -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                
+                <!-- Product Card 1 -->
+                <div class="card-hover bg-card rounded-xl shadow-lg overflow-hidden border border-border" data-mock="true">
+                    <!-- Premium electronic hookah device with sleek silver finish -->
+                    <img src="https://pixabay.com/get/g35b9c35da4a791fef136c2bf2fb486656da118de1a1386f7078660434b0d9c726ed4efe24949efb80ec2a331abc432e1536be8b5e10a4b3b0fd51ff1df0a8902_1280.jpg" 
+                         alt="Premium Electronic Hookah" 
+                         class="w-full h-64 object-cover">
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-card-foreground mb-2" data-bind="product.name">معسل إلكتروني فاخر</h3>
+                        <p class="text-muted-foreground mb-4" data-bind="product.description">معسل إلكتروني عالي الجودة بتقنية حديثة</p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-primary" data-bind="product.price">1,299 ريال</span>
+                            <button class="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg transition-colors" 
+                                    data-event="click:addToCart">
+                                إضافة للسلة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card 2 -->
+                <div class="card-hover bg-card rounded-xl shadow-lg overflow-hidden border border-border" data-mock="true">
+                    <!-- Modern vaping device with blue LED lighting -->
+                    <img src="https://images.unsplash.com/photo-1525904097878-94fb15835963?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                         alt="Modern Vaping Device" 
+                         class="w-full h-64 object-cover">
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-card-foreground mb-2" data-bind="product.name">جهاز تدخين حديث</h3>
+                        <p class="text-muted-foreground mb-4" data-bind="product.description">تصميم عصري مع إضاءة LED زرقاء</p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-primary" data-bind="product.price">899 ريال</span>
+                            <button class="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg transition-colors" 
+                                    data-event="click:addToCart">
+                                إضافة للسلة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card 3 -->
+                <div class="card-hover bg-card rounded-xl shadow-lg overflow-hidden border border-border" data-mock="true">
+                    <!-- Luxury hookah accessories set with silver finish -->
+                    <img src="https://images.unsplash.com/photo-1506368083636-6defb67639a7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                         alt="Luxury Hookah Accessories" 
+                         class="w-full h-64 object-cover">
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-card-foreground mb-2" data-bind="product.name">طقم إكسسوارات فاخر</h3>
+                        <p class="text-muted-foreground mb-4" data-bind="product.description">مجموعة كاملة من الإكسسوارات الفضية</p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-primary" data-bind="product.price">549 ريال</span>
+                            <button class="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg transition-colors" 
+                                    data-event="click:addToCart">
+                                إضافة للسلة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card 4 -->
+                <div class="card-hover bg-card rounded-xl shadow-lg overflow-hidden border border-border" data-mock="true">
+                    <!-- Professional grade electronic hookah with digital display -->
+                    <img src="https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                         alt="Professional Electronic Hookah" 
+                         class="w-full h-64 object-cover">
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-card-foreground mb-2" data-bind="product.name">معسل احترافي متطور</h3>
+                        <p class="text-muted-foreground mb-4" data-bind="product.description">مع شاشة رقمية وتحكم ذكي</p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-primary" data-bind="product.price">1,899 ريال</span>
+                            <button class="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg transition-colors" 
+                                    data-event="click:addToCart">
+                                إضافة للسلة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card 5 -->
+                <div class="card-hover bg-card rounded-xl shadow-lg overflow-hidden border border-border" data-mock="true">
+                    <!-- Compact portable vaping device -->
+                    <img src="https://images.unsplash.com/photo-1559181567-c3190ca9959b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                         alt="Compact Portable Device" 
+                         class="w-full h-64 object-cover">
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-card-foreground mb-2" data-bind="product.name">جهاز محمول صغير</h3>
+                        <p class="text-muted-foreground mb-4" data-bind="product.description">تصميم مدمج وسهل الحمل</p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-primary" data-bind="product.price">399 ريال</span>
+                            <button class="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg transition-colors" 
+                                    data-event="click:addToCart">
+                                إضافة للسلة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card 6 -->
+                <div class="card-hover bg-card rounded-xl shadow-lg overflow-hidden border border-border" data-mock="true">
+                    <!-- Premium glass components for hookah -->
+                    <img src="https://pixabay.com/get/g4ad39b046d081eb9db56b5420283988c983d86e9b6e55fcef7a590310b268c1d7a677cc10558aa778ae82558fcdc8f951635af96aa76c6835c73b14367f76991_1280.jpg" 
+                         alt="Premium Glass Components" 
+                         class="w-full h-64 object-cover">
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-card-foreground mb-2" data-bind="product.name">قطع زجاجية فاخرة</h3>
+                        <p class="text-muted-foreground mb-4" data-bind="product.description">زجاج عالي الجودة بتصميم أنيق</p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-primary" data-bind="product.price">249 ريال</span>
+                            <button class="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg transition-colors" 
+                                    data-event="click:addToCart">
+                                إضافة للسلة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card 7 -->
+                <div class="card-hover bg-card rounded-xl shadow-lg overflow-hidden border border-border" data-mock="true">
+                    <!-- Electronic hookah with RGB lighting -->
+                    <img src="https://pixabay.com/get/g62baa4ca401a5069e2eebd19eed224a8821f1bc9cf09e6969af8be3ee86699caa0b7b89ec756f8945a5a1c09ee7d4c803c95e575e7107b3e7286f55b992143b9_1280.jpg" 
+                         alt="RGB Electronic Hookah" 
+                         class="w-full h-64 object-cover">
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-card-foreground mb-2" data-bind="product.name">معسل RGB متطور</h3>
+                        <p class="text-muted-foreground mb-4" data-bind="product.description">إضاءة متعددة الألوان وتحكم ذكي</p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-primary" data-bind="product.price">1,599 ريال</span>
+                            <button class="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg transition-colors" 
+                                    data-event="click:addToCart">
+                                إضافة للسلة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card 8 -->
+                <div class="card-hover bg-card rounded-xl shadow-lg overflow-hidden border border-border" data-mock="true">
+                    <!-- Starter kit for beginners -->
+                    <img src="https://images.unsplash.com/photo-1525904097878-94fb15835963?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                         alt="Starter Kit" 
+                         class="w-full h-64 object-cover">
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-card-foreground mb-2" data-bind="product.name">طقم البداية</h3>
+                        <p class="text-muted-foreground mb-4" data-bind="product.description">كل ما تحتاجه للبدء</p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-primary" data-bind="product.price">699 ريال</span>
+                            <button class="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg transition-colors" 
+                                    data-event="click:addToCart">
+                                إضافة للسلة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- @END_MAP )) -->
+            
+            <!-- View All Products Button -->
+            <div class="text-center mt-12">
+                <button class="bg-secondary hover:bg-secondary/80 text-secondary-foreground px-8 py-3 rounded-lg text-lg font-semibold transition-colors">
+                    عرض جميع المنتجات
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ProductsSection -->
+
+    <!-- About Section -->
+    <!-- @COMPONENT: AboutSection [store identity and mission] -->
+    <section id="about" class="py-20 bg-muted/30">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Content -->
+                <div class="order-2 lg:order-1">
+                    <h2 class="text-4xl lg:text-5xl font-bold text-foreground mb-6">من نحن</h2>
+                    
+                    <div class="space-y-6 text-lg text-muted-foreground leading-relaxed">
+                        <p>
+                            <strong class="text-foreground">Silver Hand</strong> هو متجرك المتخصص في عالم المعسلات الإلكترونية الفاخرة. 
+                            نحن نؤمن بأن التجربة المثالية تبدأ بالجودة العالية والتصميم الأنيق.
+                        </p>
+                        
+                        <p>
+                            منذ تأسيسنا، نسعى لتقديم أفضل المنتجات المختارة بعناية من أرقى العلامات التجارية العالمية، 
+                            مع الحرص على توفير تجربة تسوق استثنائية وخدمة عملاء متميزة.
+                        </p>
+                        
+                        <p>
+                            نتطلع إلى أن نكون الوجهة الأولى لعشاق المعسلات الإلكترونية في المنطقة، 
+                            ونواصل الابتكار في تقديم أحدث التقنيات والتصاميم الأنيقة.
+                        </p>
+                    </div>
+                    
+                    <!-- Features -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-primary/10 p-3 rounded-lg">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-foreground">جودة مضمونة</h3>
+                                <p class="text-sm text-muted-foreground">منتجات أصلية 100%</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-primary/10 p-3 rounded-lg">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-foreground">توصيل سريع</h3>
+                                <p class="text-sm text-muted-foreground">خدمة توصيل موثوقة</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-primary/10 p-3 rounded-lg">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 12h.01M12 12h.01M12 12h.01M12 12h.01"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-foreground">دعم فني متميز</h3>
+                                <p class="text-sm text-muted-foreground">فريق خبراء جاهز للمساعدة</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-primary/10 p-3 rounded-lg">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-foreground">دفع آمن</h3>
+                                <p class="text-sm text-muted-foreground">حماية كاملة للمعاملات</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image -->
+                <div class="order-1 lg:order-2">
+                    <!-- Elegant hookah store interior with modern displays -->
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&h=800" 
+                         alt="Modern Hookah Store Interior" 
+                         class="rounded-2xl shadow-2xl w-full h-auto">
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: AboutSection -->
+
+    <!-- Contact Section -->
+    <!-- @COMPONENT: ContactSection [contact information and form] -->
+    <section id="contact" class="py-20 bg-background">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold text-foreground mb-6">تواصل معنا</h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    نحن هنا للإجابة على جميع استفساراتك ومساعدتك في اختيار المنتج المناسب
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <div class="bg-card p-8 rounded-2xl border border-border">
+                        <h3 class="text-2xl font-bold text-card-foreground mb-6">معلومات التواصل</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-primary/10 p-3 rounded-lg shrink-0">
+                                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-card-foreground mb-1">العنوان</h4>
+                                    <p class="text-muted-foreground" data-mock="true">شارع الملك فهد، الرياض، المملكة العربية السعودية</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-primary/10 p-3 rounded-lg shrink-0">
+                                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-card-foreground mb-1">الهاتف</h4>
+                                    <p class="text-muted-foreground" data-mock="true">+966 50 123 4567</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-primary/10 p-3 rounded-lg shrink-0">
+                                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-card-foreground mb-1">البريد الإلكتروني</h4>
+                                    <p class="text-muted-foreground" data-mock="true">info@silverhand.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-primary/10 p-3 rounded-lg shrink-0">
+                                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-card-foreground mb-1">ساعات العمل</h4>
+                                    <p class="text-muted-foreground" data-mock="true">السبت - الخميس: 9:00 ص - 10:00 م</p>
+                                    <p class="text-muted-foreground" data-mock="true">الجمعة: 2:00 م - 10:00 م</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media -->
+                    <div class="bg-card p-8 rounded-2xl border border-border">
+                        <h3 class="text-2xl font-bold text-card-foreground mb-6">تابعنا على</h3>
+                        
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-primary/10 hover:bg-primary hover:text-primary-foreground p-3 rounded-lg transition-colors">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="bg-primary/10 hover:bg-primary hover:text-primary-foreground p-3 rounded-lg transition-colors">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="bg-primary/10 hover:bg-primary hover:text-primary-foreground p-3 rounded-lg transition-colors">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.097.118.112.223.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.174.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.146-1.378l.584-2.225c.214-.814.88-3.255.88-3.255s-.199-.398-.199-.985c0-.921.538-1.608 1.209-1.608.57 0 .846.428.846.942 0 .573-.365 1.431-.553 2.227-.157.659.331 1.196.983 1.196 1.181 0 2.09-1.244 2.09-3.042 0-1.588-1.14-2.7-2.773-2.7-1.892 0-3.003 1.419-3.003 2.888 0 .571.22 1.186.494 1.518.054.065.062.122.046.188-.05.207-.161.656-.183.748-.029.118-.094.143-.217.086-.806-.375-1.31-1.551-1.31-2.497 0-2.09 1.525-4.017 4.4-4.017 2.308 0 4.108 1.643 4.108 3.838 0 2.290-1.444 4.135-3.448 4.135-.672 0-1.305-.349-1.52-.765 0 0-.332 1.265-.413 1.578-.15.573-.555 1.29-.826 1.729C10.045 23.245 10.963 24 12.017 24c6.624 0 11.99-5.367 11.99-11.987C24.007 5.367 18.641.001 12.017.001z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="bg-primary/10 hover:bg-primary hover:text-primary-foreground p-3 rounded-lg transition-colors">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="bg-card p-8 rounded-2xl border border-border">
+                    <h3 class="text-2xl font-bold text-card-foreground mb-6">أرسل لنا رسالة</h3>
+                    
+                    <form class="space-y-6" data-implementation="Contact form should validate and send message">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="firstName" class="block text-sm font-medium text-card-foreground mb-2">الاسم الأول</label>
+                                <input type="text" 
+                                       id="firstName" 
+                                       name="firstName"
+                                       class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                                       placeholder="أدخل اسمك الأول"
+                                       data-mock="true">
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-sm font-medium text-card-foreground mb-2">اسم العائلة</label>
+                                <input type="text" 
+                                       id="lastName" 
+                                       name="lastName"
+                                       class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                                       placeholder="أدخل اسم العائلة"
+                                       data-mock="true">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-card-foreground mb-2">البريد الإلكتروني</label>
+                            <input type="email" 
+                                   id="email" 
+                                   name="email"
+                                   class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                                   placeholder="أدخل بريدك الإلكتروني"
+                                   data-mock="true">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-card-foreground mb-2">رقم الهاتف</label>
+                            <input type="tel" 
+                                   id="phone" 
+                                   name="phone"
+                                   class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                                   placeholder="أدخل رقم هاتفك"
+                                   data-mock="true">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-card-foreground mb-2">الموضوع</label>
+                            <select id="subject" 
+                                    name="subject"
+                                    class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                                    data-mock="true">
+                                <option value="">اختر موضوع الرسالة</option>
+                                <option value="product-inquiry">استفسار عن منتج</option>
+                                <option value="order-status">حالة الطلب</option>
+                                <option value="technical-support">دعم فني</option>
+                                <option value="general">عام</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-card-foreground mb-2">الرسالة</label>
+                            <textarea id="message" 
+                                      name="message" 
+                                      rows="5"
+                                      class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent transition-colors resize-none"
+                                      placeholder="أكتب رسالتك هنا..."
+                                      data-mock="true"></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 px-6 rounded-lg font-semibold transition-colors"
+                                data-event="click:submitContactForm">
+                            إرسال الرسالة
+                        </button>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ContactSection -->
+
+    <!-- Footer -->
+    <!-- @COMPONENT: Footer [site links and copyright] -->
+    <footer class="bg-foreground text-white py-16">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Company Info -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCACgAKADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/2Q==" 
+                             alt="Silver Hand Logo" 
+                             class="h-10 w-auto brightness-200" 
+                             data-mock="true">
+                        <span class="text-2xl font-bold">Silver Hand</span>
+                    </div>
+                    
+                    <p class="text-gray-300 mb-6 leading-relaxed max-w-md">
+                        وجهتك الأولى للمعسلات الإلكترونية الفاخرة. نوفر أجود المنتجات وأحدث التقنيات 
+                        لتجربة استثنائية لا تُنسى.
+                    </p>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-white/10 hover:bg-white/20 p-2 rounded-lg transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="bg-white/10 hover:bg-white/20 p-2 rounded-lg transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="bg-white/10 hover:bg-white/20 p-2 rounded-lg transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="bg-white/10 hover:bg-white/20 p-2 rounded-lg transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.097.118.112.223.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.174.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.146-1.378l.584-2.225c.214-.814.88-3.255.88-3.255s-.199-.398-.199-.985c0-.921.538-1.608 1.209-1.608.57 0 .846.428.846.942 0 .573-.365 1.431-.553 2.227-.157.659.331 1.196.983 1.196 1.181 0 2.09-1.244 2.09-3.042 0-1.588-1.14-2.7-2.773-2.7-1.892 0-3.003 1.419-3.003 2.888 0 .571.22 1.186.494 1.518.054.065.062.122.046.188-.05.207-.161.656-.183.748-.029.118-.094.143-.217.086-.806-.375-1.31-1.551-1.31-2.497 0-2.09 1.525-4.017 4.4-4.017 2.308 0 4.108 1.643 4.108 3.838 0 2.290-1.444 4.135-3.448 4.135-.672 0-1.305-.349-1.52-.765 0 0-.332 1.265-.413 1.578-.15.573-.555 1.29-.826 1.729C10.045 23.245 10.963 24 12.017 24c6.624 0 11.99-5.367 11.99-11.987C24.007 5.367 18.641.001 12.017.001z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">روابط سريعة</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">الرئيسية</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">المنتجات</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">العروض الخاصة</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">من نحن</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">تواصل معنا</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Customer Service -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">خدمة العملاء</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">سياسة الإرجاع</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">الشحن والتوصيل</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">الأسئلة الشائعة</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">الدعم الفني</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+            
+            <!-- Bottom Section -->
+            <div class="border-t border-gray-700 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0" data-mock="true">
+                        © 2024 Silver Hand. جميع الحقوق محفوظة.
+                    </p>
+                    
+                    <div class="flex items-center space-x-6 text-sm text-gray-400">
+                        <a href="#" class="hover:text-white transition-colors">الشروط والأحكام</a>
+                        <a href="#" class="hover:text-white transition-colors">سياسة الخصوصية</a>
+                        <a href="#" class="hover:text-white transition-colors">ملفات تعريف الارتباط</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        (function() {
+            const mobileMenuButton = document.querySelector('[data-event="click:toggleMobileMenu"]');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        })();
+
+        // Smooth Scrolling for Navigation Links
+        (function() {
+            const scrollLinks = document.querySelectorAll('[data-event="click:scrollToSection"]');
+            
+            scrollLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobileMenu');
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+        })();
+
+        // Scroll to Products Section
+        (function() {
+            const scrollToProductsBtn = document.querySelector('[data-event="click:scrollToProducts"]');
+            
+            if (scrollToProductsBtn) {
+                scrollToProductsBtn.addEventListener('click', function() {
+                    const productsSection = document.getElementById('products');
+                    if (productsSection) {
+                        productsSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            }
+        })();
+
+        // Add to Cart Buttons (Placeholder functionality)
+        (function() {
+            const addToCartButtons = document.querySelectorAll('[data-event="click:addToCart"]');
+            
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // TODO: Implement add to cart functionality
+                    const productCard = this.closest('.card-hover');
+                    const productName = productCard.querySelector('[data-bind="product.name"]').textContent;
+                    
+                    // Show a simple notification (replace with proper notification system)
+                    alert(`تم إضافة "${productName}" إلى السلة`);
+                });
+            });
+        })();
+
+        // Contact Form Submission
+        (function() {
+            const contactForm = document.querySelector('[data-implementation*="Contact form"]');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // TODO: Implement form validation and submission
+                    alert('شكراً لتواصلك معنا! سنرد عليك في أقرب وقت ممكن.');
+                    
+                    // Reset form
+                    this.reset();
+                });
+            }
+        })();
+
+        // Header Background Change on Scroll
+        (function() {
+            const header = document.querySelector('header');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.classList.add('bg-background/95');
+                    header.classList.add('backdrop-blur-sm');
+                } else {
+                    header.classList.remove('bg-background/95');
+                    header.classList.remove('backdrop-blur-sm');
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

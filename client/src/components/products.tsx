@@ -10,62 +10,67 @@ interface Product {
   image: string;
 }
 
+import product1 from "@assets/1 (2)_1756500782507.png";
+import product2 from "@assets/2_1756500782510.png";
+import product3 from "@assets/3_1756500782511.png";
+import product4 from "@assets/4_1756500782511.png";
+
 const products: Product[] = [
   {
     id: 1,
-    name: "معسل إلكتروني فاخر",
-    description: "معسل إلكتروني عالي الجودة بتقنية حديثة",
+    name: "RAZ TN9000 أزرق",
+    description: "معسل إلكتروني بشاشة رقمية وتقنية BOOST المتطورة",
     price: "1,299 ريال",
-    image: "https://images.unsplash.com/photo-1559181567-c3190ca9959b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    image: product1
   },
   {
     id: 2,
-    name: "جهاز تدخين حديث",
-    description: "تصميم عصري مع إضاءة LED زرقاء",
-    price: "899 ريال",
-    image: "https://images.unsplash.com/photo-1525904097878-94fb15835963?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    name: "RAZ TN9000 بنفسجي",
+    description: "تصميم أنيق باللون البنفسجي مع شاشة تفاعلية",
+    price: "1,299 ريال",
+    image: product2
   },
   {
     id: 3,
-    name: "طقم إكسسوارات فاخر",
-    description: "مجموعة كاملة من الإكسسوارات الفضية",
-    price: "549 ريال",
-    image: "https://images.unsplash.com/photo-1506368083636-6defb67639a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    name: "RAZ TN9000 وردي",
+    description: "لون وردي مميز مع تقنيات حديثة للاستخدام الطويل",
+    price: "1,299 ريال",
+    image: product3
   },
   {
     id: 4,
-    name: "معسل احترافي متطور",
-    description: "مع شاشة رقمية وتحكم ذكي",
-    price: "1,899 ريال",
-    image: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    name: "RAZ TN9000 أخضر",
+    description: "باللون الأخضر الليموني مع واجهة تحكم متقدمة",
+    price: "1,299 ريال",
+    image: product4
   },
   {
     id: 5,
-    name: "جهاز محمول صغير",
-    description: "تصميم مدمج وسهل الحمل",
-    price: "399 ريال",
-    image: "https://images.unsplash.com/photo-1559181567-c3190ca9959b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    name: "RAZ TN9000 أزرق كلاسيكي",
+    description: "النسخة الكلاسيكية بالأزرق الفاتح",
+    price: "1,199 ريال",
+    image: product1
   },
   {
     id: 6,
-    name: "قطع زجاجية فاخرة",
-    description: "زجاج عالي الجودة بتصميم أنيق",
-    price: "249 ريال",
-    image: "https://images.unsplash.com/photo-1525904097878-94fb15835963?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    name: "RAZ TN9000 بنفسجي مطور",
+    description: "إصدار محدود باللون البنفسجي",
+    price: "1,399 ريال",
+    image: product2
   },
   {
     id: 7,
-    name: "معسل RGB متطور",
-    description: "إضاءة متعددة الألوان وتحكم ذكي",
-    price: "1,599 ريال",
-    image: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    name: "RAZ TN9000 وردي فاخر",
+    description: "تصميم فاخر بالوردي مع إضافات حصرية",
+    price: "1,499 ريال",
+    image: product3
   },
   {
     id: 8,
-    name: "طقم البداية",
-    description: "كل ما تحتاجه للبدء",
-    price: "699 ريال",
-    image: "https://images.unsplash.com/photo-1525904097878-94fb15835963?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    name: "RAZ TN9000 أخضر برو",
+    description: "الإصدار الاحترافي بالأخضر مع ميزات إضافية",
+    price: "1,599 ريال",
+    image: product4
   }
 ];
 

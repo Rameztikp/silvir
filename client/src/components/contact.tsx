@@ -85,7 +85,7 @@ export default function Contact() {
                   <div>
                     <h4 className="font-semibold text-card-foreground mb-1" data-testid="contact-address-title">العنوان</h4>
                     <p className="text-muted-foreground" data-testid="contact-address">
-                      شارع الملك فهد، الرياض، المملكة العربية السعودية
+                      اليمن عدن الاسطورة مول
                     </p>
                   </div>
                 </div>
@@ -96,7 +96,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-card-foreground mb-1" data-testid="contact-phone-title">الهاتف</h4>
-                    <p className="text-muted-foreground" data-testid="contact-phone">+966 50 123 4567</p>
+                    <p className="text-muted-foreground" data-testid="contact-phone">+967782478767</p>
                   </div>
                 </div>
                 
@@ -106,7 +106,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-card-foreground mb-1" data-testid="contact-email-title">البريد الإلكتروني</h4>
-                    <p className="text-muted-foreground" data-testid="contact-email">info@silverhand.com</p>
+                    <p className="text-muted-foreground" data-testid="contact-email">info@silverhand-ye.com</p>
                   </div>
                 </div>
                 

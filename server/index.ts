@@ -63,7 +63,9 @@ app.use((req, res, next) => {
   const port = parseInt(process.env.PORT || '5000', 10);
   server.listen({
     port,
-    host: "127.0.0.1",
+    // For Render deployment, we need to bind to 0.0.0.0
+    // For local Windows development, we need 127.0.0.1
+    host: process.env.NODE_ENV === 'production' ? '0.0.0.0' : '127.0.0.1',
   }, () => {
     log(`serving on port ${port}`);
   });
